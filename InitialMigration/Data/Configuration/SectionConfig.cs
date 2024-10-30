@@ -14,7 +14,7 @@ namespace InitialMigration.Data.Configuration
 
             // second prop
             //builder.Property(x => x.CourseName).HasMaxLength(255); // nvarchar(255)
-            builder.Property(x => x.SectionName).HasColumnType("VARCHAR").HasMaxLength(255).IsRequired(); // varchar(255)
+            builder.Property(x => x.SectionName).HasColumnType("VARCHAR").HasMaxLength(50).IsRequired(); // varchar(255)
 
             // Relationship One To Many  With Courses
             builder.HasOne(x => x.Course)
@@ -26,6 +26,7 @@ namespace InitialMigration.Data.Configuration
                 .WithMany(x => x.Sections)
                 .HasForeignKey(x => x.InstructorId)
                 .IsRequired(false);
+            builder.HasMany(x => x.Schedules).WithMany(x => x.Sections).UsingEntity<SectionSchedule>();
 
             builder.ToTable("Sections");
 

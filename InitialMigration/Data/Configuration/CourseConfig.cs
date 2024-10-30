@@ -14,7 +14,7 @@ namespace InitialMigration.Data.Configuration
 
             // second prop
             //builder.Property(x => x.CourseName).HasMaxLength(255); // nvarchar(255)
-            builder.Property(x => x.CourseName).HasColumnType("VARCHAR").HasMaxLength(255).IsRequired(); // varchar(255)
+            builder.Property(x => x.CourseName).HasColumnType("VARCHAR").HasMaxLength(50).IsRequired(); // varchar(255)
 
             // third prop
             builder.Property(x => x.Price).HasPrecision(15, 2);
