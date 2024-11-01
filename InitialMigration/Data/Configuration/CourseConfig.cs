@@ -18,13 +18,10 @@ namespace InitialMigration.Data.Configuration
 
             // third prop
             builder.Property(x => x.Price).HasPrecision(15, 2);
-
+            //
             builder.ToTable("Courses");
-
             // Load DAta 
-
             builder.HasData(LoadCourses());
-
         }
 
         private static List<Course> LoadCourses()

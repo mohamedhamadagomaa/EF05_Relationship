@@ -18,11 +18,11 @@ namespace InitialMigration.Data.Configuration
             builder.ToTable("SectionSchedules");
             // Load DAta 
 
-            builder.HasData(SectionSchedules());
+            builder.HasData(LoadSectionSchedules());
 
         }
 
-        private static List<SectionSchedule> SectionSchedules()
+        private static List<SectionSchedule> LoadSectionSchedules()
         {
             return new List<SectionSchedule>
             {
